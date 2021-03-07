@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{f6e7e381-83fd-4d09-ba07-144582b324d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\DirectX">
+      <UniqueIdentifier>{aa4c1697-f435-4254-9824-052c7303a299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\DirectX\Shaders">
+      <UniqueIdentifier>{aaa4bab3-c9e7-43da-bdb4-793733778169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Devices">
+      <UniqueIdentifier>{9b9072fa-aa9d-4993-a261-ae23bc85f44d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Devices\Input">
+      <UniqueIdentifier>{3fd0c734-503f-4183-9335-1cefb8af5c45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Storage">
+      <UniqueIdentifier>{406a7125-4a84-4331-8ce6-b6f4b815f879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{dc9c4287-2d68-4601-ac0f-6c1b6b2d6d1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\Tcp">
+      <UniqueIdentifier>{4e7d5a49-e71c-424c-9220-7f6e7bbbf263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Storage\Filesystem">
+      <UniqueIdentifier>{852b463f-db29-4668-95f4-ebd55b52dcf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\Udp">
+      <UniqueIdentifier>{d2a864af-f057-481a-ad46-9dd230875b38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime">
+      <UniqueIdentifier>{a599fae4-4887-49bf-8b9e-8ee930ad353b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Devices\Storage">
+      <UniqueIdentifier>{379cb4f9-71c9-4c65-affe-b75b4542768a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\DeviceContext.cpp">
+      <Filter>Graphics\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\Camera.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\Material.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\Model.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\Scene.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\Texture.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\SwapChain.cpp">
+      <Filter>Graphics\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\VertexList.cpp">
+      <Filter>Graphics\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Brush.cpp">
+      <Filter>Graphics\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Bitmap.cpp">
+      <Filter>Graphics\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Devices\Input\Gamepad.cpp">
+      <Filter>Devices\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Devices\MemoryClass.cpp">
+      <Filter>Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Network\Tcp\TcpClient.cpp">
+      <Filter>Network\Tcp</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Network\Tcp\TcpConnection.cpp">
+      <Filter>Network\Tcp</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Network\Tcp\TcpServer.cpp">
+      <Filter>Network\Tcp</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryHelper.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ResourceHelper.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Devices\ClockHelper.cpp">
+      <Filter>Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\ColorHelper.cpp">
+      <Filter>Graphics\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Storage\Filesystem\Directory.cpp">
+      <Filter>Storage\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Storage\Filesystem\FileHelper.cpp">
+      <Filter>Storage\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Storage\Filesystem\File.cpp">
+      <Filter>Storage\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Storage\Filesystem\TextFile.cpp">
+      <Filter>Storage\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Network\Gateway.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Storage\AppDataHelper.cpp">
+      <Filter>Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Network\Udp\UdpServer.cpp">
+      <Filter>Network\Udp</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Network\Udp\UdpClient.cpp">
+      <Filter>Network\Udp</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Runtime\Application.cpp">
+      <Filter>Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Devices\Storage\BlockDevice.cpp">
+      <Filter>Devices\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Devices\Storage\FileDevice.cpp">
+      <Filter>Devices\Storage</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\DirectX\DeviceContext.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Shaders\ConstantBuffer.h">
+      <Filter>Graphics\DirectX\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\Camera.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\Material.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\Model.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\Scene.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\Texture.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\DirectX\SwapChain.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Version.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\DirectX\VertexList.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Brush.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Bitmap.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ComPtr.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Platform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ComHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Devices\Input\Gamepad.h">
+      <Filter>Devices\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Devices\MemoryClass.h">
+      <Filter>Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Network\Tcp\TcpClient.h">
+      <Filter>Network\Tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Network\Tcp\TcpConnection.h">
+      <Filter>Network\Tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Network\Tcp\TcpServer.h">
+      <Filter>Network\Tcp</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ResourceHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Devices\ClockHelper.h">
+      <Filter>Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\DirectX\ColorHelper.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TypeHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Storage\Filesystem\Directory.h">
+      <Filter>Storage\Filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Storage\Filesystem\FileHelper.h">
+      <Filter>Storage\Filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Storage\Filesystem\File.h">
+      <Filter>Storage\Filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Storage\Filesystem\TextFile.h">
+      <Filter>Storage\Filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Network\Gateway.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Storage\AppDataHelper.h">
+      <Filter>Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Network\Udp\UdpServer.h">
+      <Filter>Network\Udp</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Network\Udp\UdpClient.h">
+      <Filter>Network\Udp</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Runtime\Application.h">
+      <Filter>Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Devices\Storage\FileDevice.h">
+      <Filter>Devices\Storage</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Shaders\ConstantBuffer.hlsli">
+      <Filter>Graphics\DirectX\Shaders</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Shaders\PixelShaderInput.hlsli">
+      <Filter>Graphics\DirectX\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Shaders\PixelShader.hlsl">
+      <Filter>Graphics\DirectX\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Shaders\VertexShader.hlsl">
+      <Filter>Graphics\DirectX\Shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
