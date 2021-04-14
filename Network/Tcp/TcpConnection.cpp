@@ -9,10 +9,10 @@
 // Using
 //=======
 
-#include "Runtime/Application.h"
+#include "Core/Application.h"
 #include "TcpConnection.h"
 
-using namespace Runtime;
+using namespace Core;
 
 
 //===========
@@ -28,8 +28,10 @@ namespace Network {
 //==================
 
 TcpConnection::TcpConnection(SOCKET sock):
+hThis(this),
 uSocket(sock),
 uStatus(TcpConnectionStatus::Open),
+uTimeClose(0),
 uTimeout(0)
 {
 InputBuffer=new PacketBuffer();
@@ -53,12 +55,13 @@ if(uStatus==TcpConnectionStatus::Closed)
 CloseInternal();
 uStatus=TcpConnectionStatus::Closed;
 Closed(this);
+hThis=nullptr;
 }
 
 VOID TcpConnection::SetTimeout(UINT utimeout)
 {
-UINT64 utime=GetTickCount64();
-uTimeout=utime+utimeout;
+uTimeout=utimeout;
+uTimeClose=GetTickCount64()+uTimeout;
 }
 
 
@@ -89,9 +92,8 @@ DataSent(this);
 
 SIZE_T TcpConnection::Write(VOID const* pbuf, SIZE_T usize)
 {
-UINT uwrite=MIN(usize, 2048);
+UINT uwrite=(UINT)MIN(usize, 2048);
 UINT uwritten=send(uSocket, (CHAR const*)pbuf, uwrite, 0);
-SetTimeout(10000);
 if(uwritten>uwrite)
 	return 0;
 return uwritten;
@@ -121,15 +123,17 @@ CHAR pbuf[512];
 INT ilen=recv(uSocket, pbuf, 512, 0);
 if(ilen==0||ilen==SOCKET_ERROR)
 	{
-	if(uTimeout==0)
+	if(uTimeClose==0)
 		return;
 	UINT64 utime=GetTickCount64();
-	if(utime>uTimeout)
+	if(utime>uTimeClose)
 		Close();
 	return;
 	}
 InputBuffer->Write(pbuf, ilen);
 DataReceived(this);
+if(uTimeout)
+	SetTimeout(uTimeout);
 }
 
 }}

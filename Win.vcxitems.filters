@@ -31,11 +31,11 @@
     <Filter Include="Network\Udp">
       <UniqueIdentifier>{d2a864af-f057-481a-ad46-9dd230875b38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Runtime">
-      <UniqueIdentifier>{a599fae4-4887-49bf-8b9e-8ee930ad353b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Devices\Storage">
       <UniqueIdentifier>{379cb4f9-71c9-4c65-affe-b75b4542768a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime">
+      <UniqueIdentifier>{3c927535-d699-4e59-979b-521571547f53}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -116,15 +116,16 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Network\Udp\UdpClient.cpp">
       <Filter>Network\Udp</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Runtime\Application.cpp">
-      <Filter>Runtime</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Devices\Storage\BlockDevice.cpp">
       <Filter>Devices\Storage</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Devices\Storage\FileDevice.cpp">
       <Filter>Devices\Storage</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Runtime\Application.cpp">
+      <Filter>Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)System.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Graphics\DirectX\DeviceContext.h">
@@ -214,12 +215,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Network\Udp\UdpClient.h">
       <Filter>Network\Udp</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Runtime\Application.h">
-      <Filter>Runtime</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Devices\Storage\FileDevice.h">
       <Filter>Devices\Storage</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Runtime\Application.h">
+      <Filter>Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)System.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Shaders\ConstantBuffer.hlsli">

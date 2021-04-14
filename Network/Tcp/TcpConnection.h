@@ -70,9 +70,11 @@ private:
 	// Common
 	VOID CloseInternal();
 	VOID OnLoop();
+	Handle<TcpConnection> hThis;
 	SOCKET uSocket;
 	TcpConnectionStatus uStatus;
-	UINT64 uTimeout;
+	UINT64 uTimeClose;
+	UINT uTimeout;
 };
 
 }}

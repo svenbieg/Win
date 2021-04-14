@@ -30,7 +30,6 @@ public:
 	// Con-/Destructors
 	TcpClient();
 	~TcpClient();
-	Event<VOID, TcpClient*> Destroyed;
 
 	// Common
 	VOID Close();

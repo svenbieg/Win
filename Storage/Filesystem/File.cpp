@@ -71,7 +71,9 @@ return hPath;
 SIZE_T File::Available()
 {
 ScopedLock lock(cCriticalSection);
-uSize=GetSize();
+if(!hFile)
+	return 0;
+uSize=GetFileSize(hFile);
 UINT64 available=uSize-uPosition;
 if(available>MAX_SIZE_T)
 	return MAX_SIZE_T;
@@ -80,24 +82,43 @@ return (SIZE_T)available;
 
 SIZE_T File::Read(VOID* pbuf, SIZE_T usize)
 {
+return Read(pbuf, usize, nullptr);
+}
+
+SIZE_T File::Read(VOID* pbufv, SIZE_T usize, BOOL* pcancel)
+{
 ScopedLock lock(cCriticalSection);
 if(!hFile)
 	return 0;
+if(!pbufv)
+	{
+	uSize=GetFileSize(hFile);
+	UINT64 available=uSize-uPosition;
+	UINT64 copy=MIN(usize, available);
+	uPosition+=copy;
+	return (SIZE_T)copy;
+	}
+auto pbuf=(BYTE*)pbufv;
 OVERLAPPED ov;
 ZeroMemory(&ov, sizeof(OVERLAPPED));
 SIZE_T upos=0;
 while(upos<usize)
 	{
-	UINT ucopy=(UINT)MIN(usize-upos, 0x10000000);
+	UINT ucopy=(UINT)MIN(usize-upos, 1024*1024);
 	DWORD uread=0;
 	ov.Offset=(UINT)uPosition;
 	ov.OffsetHigh=(UINT)(uPosition>>32);
-	if(!ReadFile(hFile, pbuf, ucopy, &uread, &ov))
+	if(!ReadFile(hFile, &pbuf[upos], ucopy, &uread, &ov))
 		return upos;
 	upos+=uread;
 	uPosition+=uread;
 	if(uread<ucopy)
 		return upos;
+	if(pcancel)
+		{
+		if(*pcancel)
+			return upos;
+		}
 	}
 return upos;
 }
@@ -120,7 +141,7 @@ SIZE_T File::Write(VOID const* pbufv, SIZE_T usize)
 ScopedLock lock(cCriticalSection);
 if(!hFile)
 	return 0;
-BYTE const* pbuf=(BYTE const*)pbufv;
+auto pbuf=(BYTE const*)pbufv;
 OVERLAPPED ov;
 ZeroMemory(&ov, sizeof(OVERLAPPED));
 SIZE_T upos=0;
@@ -130,7 +151,7 @@ while(upos<usize)
 	DWORD uwritten=0;
 	ov.Offset=(UINT)uPosition;
 	ov.OffsetHigh=(UINT)(uPosition>>32);
-	if(!WriteFile(hFile, pbuf, ucopy, &uwritten, &ov))
+	if(!WriteFile(hFile, &pbuf[upos], ucopy, &uwritten, &ov))
 		break;
 	upos+=uwritten;
 	pbuf+=uwritten;
@@ -207,6 +228,7 @@ if(!Seek(usize))
 if(!SetEndOfFile(hFile))
 	return false;
 uSize=usize;
+Seek(0);
 return true;
 }
 

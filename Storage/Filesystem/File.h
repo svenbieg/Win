@@ -40,7 +40,8 @@ public:
 
 	// Input-Stream
 	SIZE_T Available()override;
-	SIZE_T Read(VOID* Buffer, SIZE_T SIze)override;
+	SIZE_T Read(VOID* Buffer, SIZE_T Size)override;
+	SIZE_T Read(VOID* Buffer, SIZE_T SIze, BOOL* Cancel);
 
 	// Output-Stream
 	VOID Flush()override;

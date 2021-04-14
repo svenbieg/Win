@@ -42,6 +42,8 @@ if(!name)
 auto local=GetAppDataLocalPath();
 if(!local)
 	return;
+if(!DirectoryExists(local))
+	CreateDirectoryTree(local);
 auto path=new String("%s\\%s.db", local->Begin(), name->Begin());
 hFile=new File(path);
 if(!hFile->Create(FileCreateMode::OpenAlways, FileAccessMode::ReadWrite))

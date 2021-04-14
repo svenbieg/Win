@@ -37,7 +37,7 @@ public:
 
 protected:
 	// Con-/Destructors
-	Application(Handle<String> Name);
+	Application(Handle<String> Name, Handle<String> UpdateUrl=nullptr);
 };
 
 }

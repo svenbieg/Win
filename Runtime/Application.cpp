@@ -30,7 +30,7 @@ Handle<Application> Application::Current;
 // Con-/Destructors Protected
 //============================
 
-Application::Application(Handle<String> hname):
+Application::Application(Handle<String> hname, Handle<String> hupdateurl):
 Core::Application(hname)
 {
 Current=this;

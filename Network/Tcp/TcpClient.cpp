@@ -12,10 +12,10 @@
 #pragma comment (lib, "Ws2_32.lib")
 
 #include <ws2tcpip.h>
-#include "Runtime/Application.h"
+#include "Core/Application.h"
 #include "TcpClient.h"
 
-using namespace Runtime;
+using namespace Core;
 
 
 //===========
@@ -39,7 +39,6 @@ uSocket(INVALID_SOCKET)
 TcpClient::~TcpClient()
 {
 CloseInternal();
-Destroyed(this);
 }
 
 
@@ -143,18 +142,24 @@ if(hConnectedEvent==INVALID_HANDLE_VALUE)
 	return;
 	}
 DWORD dwstatus=WSAWaitForMultipleEvents(1, &hConnectedEvent, true, 10, true);
-if(dwstatus==WSA_WAIT_TIMEOUT||dwstatus==WSA_WAIT_IO_COMPLETION)
+if(dwstatus==S_OK)
 	{
+	Application::Current->Loop.Remove(this);
+	Handle<TcpConnection> hcon=new TcpConnection(uSocket);
+	WSACloseEvent(hConnectedEvent);
+	hConnectedEvent=INVALID_HANDLE_VALUE;
+	hUrl=nullptr;
+	uPort=0;
+	uSocket=INVALID_SOCKET;
+	Connected(this, hcon);
+	return;
+	}
+if(dwstatus!=WSA_WAIT_TIMEOUT&&dwstatus!=WSA_WAIT_IO_COMPLETION)
+	{
+	Application::Current->Loop.Remove(this);
 	Close();
 	return;
 	}
-Handle<TcpConnection> hcon=new TcpConnection(uSocket);
-WSACloseEvent(hConnectedEvent);
-hConnectedEvent=INVALID_HANDLE_VALUE;
-hUrl=nullptr;
-uPort=0;
-uSocket=INVALID_SOCKET;
-Connected(this, hcon);
 }
 
 BOOL TcpClient::ResolveHostName(LPCSTR purl, VOID* pres)

@@ -48,6 +48,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Storage\Filesystem\File.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Storage\Filesystem\FileHelper.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Storage\Filesystem\TextFile.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)System.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)ComHelper.h" />
@@ -84,6 +85,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Storage\Filesystem\File.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Storage\Filesystem\FileHelper.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Storage\Filesystem\TextFile.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)System.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)TypeHelper.h" />
   </ItemGroup>
   <ItemGroup>
@@ -93,11 +95,15 @@
   <ItemGroup>
     <FxCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Shaders\PixelShader.hlsl">
       <HeaderFileOutput>%(RelativeDir)PixelShader.h</HeaderFileOutput>
+      <ObjectFileOutput>
+      </ObjectFileOutput>
       <ShaderType>Pixel</ShaderType>
       <VariableName>ppixelshader</VariableName>
     </FxCompile>
     <FxCompile Include="$(MSBuildThisFileDirectory)Graphics\DirectX\Shaders\VertexShader.hlsl">
       <HeaderFileOutput>%(RelativeDir)VertexShader.h</HeaderFileOutput>
+      <ObjectFileOutput>
+      </ObjectFileOutput>
       <ShaderType>Vertex</ShaderType>
       <VariableName>pvertexshader</VariableName>
     </FxCompile>
